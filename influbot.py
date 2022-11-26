@@ -133,6 +133,7 @@ def preprocess_national(df):
     
 def preprocess_regional(df,reg,last_week):
     df['region'] = df['region'].replace('FriuliNAVenezia Giulia','Friuli-Venezia Giulia')
+    df['region'] = df['region'].replace('Emilia Romag-','Emilia Romagna')
     region_codes = {'Piedmont':1,'Aosta Valley':2,'Lombardy':3,'AP Bolzano':21,'AP Trento':22,
                     'Veneto':5,'Friuli-Venezia Giulia':6,'Liguria':7,'Emilia Romagna':8,
                     'Tuscany':9,'Umbria':10,'Marche':11,'Lazio':12,'Abruzzo':13,'Molise':14,
