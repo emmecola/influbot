@@ -1,0 +1,5 @@
+geopandas==0.12.1
+matplotlib==3.5.1
+pandas==1.5.1
+seaborn==0.12.1
+toot==0.28.0
