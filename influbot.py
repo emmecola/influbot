@@ -19,6 +19,9 @@ import subprocess
 # My variables
 archive_file='archive.txt'
 temp_file='temp.txt'
+myfont='Figtree'
+region_shapefile='Limiti01012022_g/Reg01012022_g/Reg01012022_g_WGS84.shp'
+province_shapefile='Limiti01012022_g/ProvCM01012022_g/ProvCM01012022_g_WGS84.shp'
 
 # Functions
 
@@ -39,10 +42,10 @@ def cleanOutput(temp_file):
     subprocess.run("rm -rf *.png",shell=True)
     subprocess.run("> " + temp_file,shell=True)
         
-def plot_incidence(df):
+def plot_incidence(df,myfont):
     palette = dict(zip(df["flu_season"].unique(), sns.color_palette('tab20', n_colors=len(df["flu_season"].unique()))))
     palette['2022-2023'] = 'black'
-    sns.set_theme(style="white",font='Figtree', rc={'figure.figsize':(15,10)}, font_scale=1.5)
+    sns.set_theme(style="white",font=myfont, rc={'figure.figsize':(15,10)}, font_scale=1.5)
     ax=sns.lineplot(data=df,x='week',y='incidence',hue='flu_season',linewidth=3,palette=palette)
     sns.despine()
     ax.set_xlabel('settimana',fontsize=20)
@@ -57,8 +60,8 @@ def plot_incidence(df):
     plt.savefig("incidenza.png")
     plt.clf()
     
-def plot_ageclass(df,last_week):
-    sns.set_theme(style="white",font='Figtree', rc={'figure.figsize':(15,10)}, font_scale=1.5)
+def plot_ageclass(df,last_week,myfont):
+    sns.set_theme(style="white",font=myfont, rc={'figure.figsize':(15,10)}, font_scale=1.5)
     ax = sns.barplot(df)
     sns.despine()
     ax.set_xlabel('classi di età',fontsize=20)
@@ -69,8 +72,8 @@ def plot_ageclass(df,last_week):
     plt.savefig("classi_eta.png")
     plt.clf()
     
-def draw_map(df,last_week):
-    sns.set_theme(style="white",font='Figtree', rc={'figure.figsize':(12,12)}, font_scale=1.8)
+def draw_map(df,last_week,myfont):
+    sns.set_theme(style="white",font=myfont, rc={'figure.figsize':(12,12)}, font_scale=1.8)
     fig, ax = plt.subplots(1, 1)
     ax = df.plot(column='incidence', ax=ax,legend=True, cmap='OrRd',missing_kwds={'color': 'lightgrey'},
              legend_kwds={'label': "casi ogni 1000 abitanti",'orientation': "vertical","shrink":.8})
@@ -226,8 +229,8 @@ def main():
     df_R = pd.read_csv("https://raw.githubusercontent.com/fbranda/influnet/main/data-aggregated/epidemiological_data/regional_cases.csv")
 
     # Load shapefiles
-    reg = gpd.read_file("Limiti01012022_g/Reg01012022_g/Reg01012022_g_WGS84.shp")
-    prov = gpd.read_file("Limiti01012022_g/ProvCM01012022_g/ProvCM01012022_g_WGS84.shp")
+    reg = gpd.read_file(region_shapefile)
+    prov = gpd.read_file(province_shapefile)
 
     # Obtain last week
     last_week = get_last_week(df)
@@ -269,9 +272,9 @@ def main():
         prepare_toot(values,temp_file)
     
         # Make plots
-        plot_incidence(df)
-        plot_ageclass(df_age_last,last_week)
-        draw_map(reg_last,last_week)
+        plot_incidence(df,myfont)
+        plot_ageclass(df_age_last,last_week,myfont)
+        draw_map(reg_last,last_week,myfont)
     
         # Send toot
         toot(temp_file)
