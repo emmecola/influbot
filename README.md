@@ -10,11 +10,11 @@ Finally, it sends a toot using the [Toot CLI](https://toot.readthedocs.io/) and 
 
 If you want to try influbot on your computer, please follow these steps:
 
-1. Install [toot](https://toot.readthedocs.io/en/latest/index.html) and configure it with your Mastodon account.
+1. Install [`toot`](https://toot.readthedocs.io/en/latest/index.html) and configure it with your Mastodon account.
 
-2. Install [pandas](https://pandas.pydata.org/), [matplotlib](https://matplotlib.org/), [seaborn](https://seaborn.pydata.org/) and [geopandas](https://geopandas.org/en/stable/) Python packages.
+2. Install [`pandas`](https://pandas.pydata.org/), [`matplotlib`](https://matplotlib.org/), [`seaborn`](https://seaborn.pydata.org/) and [`geopandas`](https://geopandas.org/en/stable/) Python packages.
 
-3. Download from the [ISTAT website](https://www.istat.it/it/archivio/222527) the zip file with the shapefiles, and extract it in the script folder.
+3. Download from the [ISTAT website](https://www.istat.it/it/archivio/222527) the zip archive with the shapefiles, and extract it in the script folder.
 
 4. The plotting functions use a custom font, [FigTree](https://fonts.google.com/specimen/Figtree), which was downloaded from Google Fonts. If you want, you can install a different font or use one of the default `matplotlib` fonts.
 
