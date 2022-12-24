@@ -10,9 +10,11 @@ Finally, it sends a toot using the [Toot CLI](https://toot.readthedocs.io/) and 
 
 If you want to try influbot on your computer, please follow these steps:
 
-1. Install [`toot`](https://toot.readthedocs.io/en/latest/index.html) and configure it with your Mastodon account.
+1. Install [`toot`](https://toot.readthedocs.io/en/latest/index.html) and [`pandas`](https://pandas.pydata.org/), [`matplotlib`](https://matplotlib.org/), [`seaborn`](https://seaborn.pydata.org/) and [`geopandas`](https://geopandas.org/en/stable/) Python packages.
 
-2. Install [`pandas`](https://pandas.pydata.org/), [`matplotlib`](https://matplotlib.org/), [`seaborn`](https://seaborn.pydata.org/) and [`geopandas`](https://geopandas.org/en/stable/) Python packages.
+    ```pip3 install -r requirements.txt```
+
+2. Configure `toot` with your own Mastodon account, following [these instructions](https://toot.readthedocs.io/en/latest/usage.html#authentication).
 
 3. Download from the [ISTAT website](https://www.istat.it/it/archivio/222527) the zip archive with the shapefiles, and extract it in the script folder.
 
