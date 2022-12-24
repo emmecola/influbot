@@ -8,7 +8,7 @@ Finally, it sends a toot using the [Toot CLI](https://toot.readthedocs.io/) and 
 
 ## Instructions
 
-If you want to try influbot on your computer, please follow these steps:
+If you want to try **influbot** on your computer, please follow these steps:
 
 1. Install [`toot`](https://toot.readthedocs.io/en/latest/index.html) and [`pandas`](https://pandas.pydata.org/), [`matplotlib`](https://matplotlib.org/), [`seaborn`](https://seaborn.pydata.org/) and [`geopandas`](https://geopandas.org/en/stable/) Python packages.
 
@@ -22,4 +22,6 @@ If you want to try influbot on your computer, please follow these steps:
 
 5. Create an `archive.txt` file that will keep track of the weeks already processed by the script.
 
-5. Run `influbot.py`!
+5. Run influbot!
+
+    ```python3 influbot.py```
