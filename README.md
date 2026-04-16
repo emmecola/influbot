@@ -1,4 +1,9 @@
 # influbot
+
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/emmecola/influbot)
+
 This script retrieves the [ISS](https://www.epicentro.iss.it/influenza/influnet) data on flu from the [Influnet](https://github.com/fbranda/influnet) repository.
 
 Then, it extracts relevant information about national incidence, most affected region and age class and draws two plots and a choropleth map using the [shapefiles](https://www.istat.it/it/archivio/222527) available on ISTAT website.
